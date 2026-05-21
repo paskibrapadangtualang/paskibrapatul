@@ -1,357 +1,2032 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Paskibra Kecamatan Padang Tualang 2026</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<title>Paskibra Kecamatan Padang Tualang 2026</title>
 
-  <style>
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-      font-family:'Poppins',sans-serif;
-    }
+<meta name="description" content="Website resmi Paskibra Kecamatan Padang Tualang 2026. Generasi muda disiplin, tangguh, berjiwa nasionalisme tinggi dan siap mengibarkan Sang Merah Putih."/>
 
-    body{
-      background:#0b1220;
-      color:#fff;
-      line-height:1.6;
-    }
+<link rel="icon" href="assets/images/launchericon-512x512.png"/>
 
-    header{
-      position:fixed;
-      top:0;
-      left:0;
-      width:100%;
-      padding:15px 30px;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      background:rgba(11,18,32,0.85);
-      backdrop-filter:blur(10px);
-      z-index:1000;
-    }
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-    header h1{
-      font-size:18px;
-      font-weight:700;
-      color:#00d4ff;
-    }
+<style>
 
-    nav a{
-      color:#fff;
-      margin-left:15px;
-      text-decoration:none;
-      font-size:14px;
-    }
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
 
-    nav a:hover{
-      color:#00d4ff;
-    }
+html{
+  scroll-behavior:smooth;
+}
 
-    .hero{
-      height:100vh;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      text-align:center;
-      background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.8)),url('https://images.unsplash.com/photo-1520975922284-9c0d0a3b4f7f') center/cover;
-      padding:20px;
-    }
+body{
+  background:#f5f5f5;
+  color:#222;
+  overflow-x:hidden;
+}
 
-    .hero h2{
-      font-size:40px;
-      color:#fff;
-    }
+/* HEADER */
 
-    .hero p{
-      margin-top:10px;
-      color:#ccc;
-    }
+header{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  padding:15px 35px;
 
-    .btn{
-      margin-top:20px;
-      display:inline-block;
-      padding:10px 20px;
-      background:#00d4ff;
-      color:#000;
-      border-radius:8px;
-      text-decoration:none;
-      font-weight:600;
-    }
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
 
-    section{
-      padding:80px 20px;
-      max-width:1100px;
-      margin:auto;
-    }
+  z-index:1000;
 
-    .title{
-      text-align:center;
-      margin-bottom:40px;
-      font-size:28px;
-      color:#00d4ff;
-    }
+  background:rgba(255,255,255,0.08);
+  backdrop-filter:blur(15px);
+  border-bottom:1px solid rgba(255,255,255,0.1);
+}
 
-    .grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-      gap:20px;
-    }
+/* KIRI */
+.header-left{
+  display:flex;
+  align-items:center;
+  gap:15px;
+}
 
-    .card{
-      background:#121a2b;
-      padding:20px;
-      border-radius:12px;
-    }
 
-    footer{
-      text-align:center;
-      padding:20px;
-      background:#0a0f1c;
-      color:#aaa;
-    }
-  </style>
+.header-right{
+  display:flex;
+  align-items:center;
+  gap:18px;
+}
+
+/* LOGO KANAN */
+.top-right-logo{
+  width:42px;
+  height:42px;
+
+  object-fit:contain;
+  padding:4px;
+
+  border-radius:12px;
+  transition:.3s;
+}
+
+.top-right-logo:hover{
+  transform:scale(1.08);
+}
+
+/* MOBILE */
+@media(max-width:768px){
+
+  .top-right-logo{
+    width:46px;
+    height:46px;
+    padding:3px;
+  }
+
+}
+
+
+
+
+header.scrolled{
+  background:rgb(174 174 174 / 92%);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(255,255,255,0.08);
+
+  box-shadow:0 5px 20px rgba(0,0,0,0.2);
+
+  transition:all .4s ease;
+}
+
+
+
+
+
+/* LOGO */
+.logo{
+  position:relative;
+  width:95px;
+  height:45px;
+  flex-shrink:0;
+}
+
+.logo-img{
+  position:absolute;
+  top:0;
+
+  width:42px;
+  height:42px;
+
+  border-radius:12px;
+  object-fit:cover;
+
+  transition:all .7s ease;
+  background:white;
+  padding:3px;
+}
+
+/* POSISI AWAL */
+.logo1{
+  left:0;
+  z-index:2;
+}
+
+.logo2{
+  left:50px;
+  z-index:1;
+}
+
+/* SAAT TUKAR */
+.logo.swap .logo1{
+  left:50px;
+  z-index:1;
+}
+
+.logo.swap .logo2{
+  left:0;
+  z-index:2;
+}
+
+/* TEXT */
+.logo-text h2{
+  font-size:17px;
+  color:white;
+  font-weight:700;
+  line-height:1.2;
+}
+
+.logo-text span{
+  color:#ffd5d5;
+  font-size:12px;
+}
+
+/* MENU */
+nav{
+  display:flex;
+  gap:18px;
+}
+
+nav a{
+  color:white;
+  text-decoration:none;
+  font-size:14px;
+  font-weight:500;
+  transition:.3s;
+  position:relative;
+}
+
+nav a::after{
+  content:'';
+  position:absolute;
+  left:0;
+  bottom:-5px;
+  width:0%;
+  height:2px;
+  background:#fff;
+  transition:.3s;
+}
+
+nav a:hover::after{
+  width:100%;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+
+  header{
+    padding:15px 18px;
+  }
+
+  nav{
+    display:none;
+  }
+
+  .logo{
+    width:85px;
+  }
+
+  .logo-img{
+    width:38px;
+    height:38px;
+  }
+
+  .logo2{
+    left:42px;
+  }
+
+  .logo.swap .logo1{
+    left:42px;
+  }
+
+  .logo-text h2{
+    font-size:14px;
+  }
+
+}
+
+/* HERO */
+
+.hero{
+  position:relative;
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:120px 20px 80px;
+
+  /* TAMBAHKAN INI */
+  background-image:
+  linear-gradient(rgba(120,0,0,0.7),rgba(0,0,0,0.85)),
+  url("assets/images/banner332.png");
+
+  background-position:center;
+  background-size:cover;
+  background-repeat:no-repeat;
+}
+.hero::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:
+  radial-gradient(circle at top right, rgba(255,255,255,0.15), transparent 30%),
+  radial-gradient(circle at bottom left, rgba(255,0,0,0.2), transparent 30%);
+}
+
+.hero-content{
+  position:relative;
+  z-index:2;
+  max-width:950px;
+}
+
+.badge{
+  display:inline-block;
+  padding:8px 18px;
+  border-radius:999px;
+  background:rgba(255,255,255,0.12);
+  border:1px solid rgba(255,255,255,0.2);
+  color:white;
+  font-size:13px;
+  margin-bottom:20px;
+  backdrop-filter:blur(10px);
+}
+
+.hero h1{
+  font-size:65px;
+  line-height:1.1;
+  font-weight:800;
+  color:white;
+  margin-bottom:20px;
+  text-shadow:0 10px 30px rgba(0,0,0,0.4);
+}
+
+.hero h1 span{
+  color:#ff3d3d;
+}
+
+.hero p{
+  color:#f1f1f1;
+  font-size:17px;
+  line-height:1.8;
+  max-width:750px;
+  margin:auto;
+}
+
+.hero-buttons{
+  margin-top:35px;
+  display:flex;
+  justify-content:center;
+  gap:15px;
+  flex-wrap:wrap;
+}
+
+.btn{
+  padding:14px 28px;
+  border-radius:14px;
+  text-decoration:none;
+  font-weight:600;
+  transition:0.3s;
+  font-size:15px;
+}
+
+.btn-primary{
+  background:linear-gradient(135deg,#ff1f1f,#c70000);
+  color:white;
+  box-shadow:0 10px 30px rgba(255,0,0,0.35);
+}
+
+.btn-primary:hover{
+  transform:translateY(-3px);
+}
+
+.btn-secondary{
+  background:rgba(255,255,255,0.12);
+  border:1px solid rgba(255,255,255,0.2);
+  color:white;
+  backdrop-filter:blur(10px);
+}
+
+.btn-secondary:hover{
+  background:white;
+  color:#c70000;
+}
+
+/* FLOATING BOX */
+
+.stats{
+  margin-top:-70px;
+  position:relative;
+  z-index:5;
+  padding:0 20px;
+}
+
+.stats-container{
+  max-width:1150px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:20px;
+}
+
+.stat-box{
+  background:white;
+  border-radius:24px;
+  padding:30px 25px;
+  box-shadow:0 10px 40px rgba(0,0,0,0.08);
+  text-align:center;
+  transition:0.3s;
+}
+
+.stat-box:hover{
+  transform:translateY(-5px);
+}
+
+.stat-box h2{
+  font-size:40px;
+  color:#d10000;
+  margin-bottom:8px;
+}
+
+.stat-box p{
+  color:#666;
+  font-size:14px;
+}
+
+/* SECTION */
+
+section{
+  padding:100px 20px;
+}
+
+.container{
+  max-width:1150px;
+  margin:auto;
+}
+
+.section-title{
+  text-align:center;
+  margin-bottom:60px;
+}
+
+.section-title span{
+  color:#d10000;
+  font-weight:600;
+  letter-spacing:1px;
+  font-size:14px;
+}
+
+.section-title h2{
+  font-size:40px;
+  margin-top:10px;
+  color:#111;
+}
+
+.section-title p{
+  color:#666;
+  margin-top:15px;
+  max-width:750px;
+  margin-inline:auto;
+  line-height:1.8;
+}
+
+/* ABOUT */
+
+.about-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+  gap:40px;
+  align-items:center;
+}
+
+.about-image{
+  position:relative;
+}
+
+.about-image img{
+  width:100%;
+  border-radius:28px;
+  object-fit:cover;
+  box-shadow:0 15px 40px rgba(0,0,0,0.15);
+}
+
+.about-card{
+  position:absolute;
+  bottom:20px;
+  left:20px;
+  background:white;
+  padding:18px;
+  border-radius:18px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.1);
+
+  opacity:0;
+  transition:all .8s ease;
+}
+
+/* DARI KANAN */
+.about-card.show-right{
+  opacity:1;
+  transform:translateX(0);
+  animation:slideRight .8s ease;
+}
+
+/* DARI KIRI */
+.about-card.show-left{
+  opacity:1;
+  transform:translateX(0);
+  animation:slideLeft .8s ease;
+}
+
+@keyframes slideRight{
+  from{
+    opacity:0;
+    transform:translateX(120px);
+  }
+  to{
+    opacity:1;
+    transform:translateX(0);
+  }
+}
+
+@keyframes slideLeft{
+  from{
+    opacity:0;
+    transform:translateX(-120px);
+  }
+  to{
+    opacity:1;
+    transform:translateX(0);
+  }
+}
+
+
+.about-text{
+  opacity:0;
+}
+
+/* DARI KANAN */
+.about-text.show-right{
+  animation:aboutRight 1s cubic-bezier(.22,1,.36,1) forwards;
+}
+
+/* DARI KIRI */
+.about-text.show-left{
+  animation:aboutLeft 1s cubic-bezier(.22,1,.36,1) forwards;
+}
+
+@keyframes aboutRight{
+
+  from{
+    opacity:0;
+    transform:
+    translateX(140px)
+    translateY(30px)
+    scale(.96);
+  }
+
+  to{
+    opacity:1;
+    transform:
+    translateX(0)
+    translateY(0)
+    scale(1);
+  }
+
+}
+
+@keyframes aboutLeft{
+
+  from{
+    opacity:0;
+    transform:
+    translateX(-140px)
+    translateY(30px)
+    scale(.96);
+  }
+
+  to{
+    opacity:1;
+    transform:
+    translateX(0)
+    translateY(0)
+    scale(1);
+  }
+
+}
+
+
+
+.about-card h3{
+  color:#d10000;
+}
+
+.about-text h3{
+  font-size:32px;
+  margin-bottom:20px;
+  color:#111;
+}
+
+.about-text p{
+  color:#555;
+  line-height:1.9;
+  margin-bottom:18px;
+}
+
+/* KEGIATAN */
+
+.activities{
+  background:linear-gradient(to bottom,#fff,#fff5f5);
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:25px;
+}
+
+.card{
+  background:white;
+  border-radius:24px;
+  padding:35px 25px;
+  transition:.4s;
+  position:relative;
+  overflow:hidden;
+  box-shadow:0 10px 30px rgba(0,0,0,0.06);
+
+  opacity:0;
+}
+
+/* MUNCUL DARI KANAN */
+.card.show-right{
+  animation:showRight .9s cubic-bezier(.22,1,.36,1) forwards;
+}
+
+/* MUNCUL DARI KIRI */
+.card.show-left{
+  animation:showLeft .9s cubic-bezier(.22,1,.36,1) forwards;
+}
+
+/* ANIMASI KANAN */
+@keyframes showRight{
+  from{
+    opacity:0;
+    transform:
+    translateX(120px)
+    translateY(30px)
+    scale(.95);
+  }
+
+  to{
+    opacity:1;
+    transform:
+    translateX(0)
+    translateY(0)
+    scale(1);
+  }
+}
+
+/* ANIMASI KIRI */
+@keyframes showLeft{
+  from{
+    opacity:0;
+    transform:
+    translateX(-120px)
+    translateY(30px)
+    scale(.95);
+  }
+
+  to{
+    opacity:1;
+    transform:
+    translateX(0)
+    translateY(0)
+    scale(1);
+  }
+}
+.card::before{
+  content:'';
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:5px;
+  background:linear-gradient(to right,#ff0000,#ffffff,#ff0000);
+}
+
+.card:hover{
+  transform:translateY(-8px);
+}
+
+.card-icon{
+  width:65px;
+  height:65px;
+  border-radius:18px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:28px;
+  margin-bottom:20px;
+  background:#ffeaea;
+}
+
+.card h3{
+  margin-bottom:12px;
+  color:#111;
+}
+
+.card p{
+  color:#666;
+  line-height:1.7;
+  font-size:14px;
+}
+
+/* FOOTER */
+
+footer{
+  background:#870000;
+  color:white;
+  text-align:center;
+  padding:35px 20px;
+  border-radius: 10px;
+}
+
+footer h3{
+  margin-bottom:10px;
+  font-size:24px;
+}
+
+footer p{
+  color:#ffdede;
+  font-size:14px;
+  line-height:1.7;
+}
+
+.copy{
+  margin-top:15px;
+  font-size:13px;
+  opacity:0.8;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:768px){
+
+  header{
+    padding:15px 18px;
+  }
+
+  nav{
+    display:none;
+  }
+
+  .hero h1{
+    font-size:40px;
+  }
+
+  .section-title h2{
+    font-size:30px;
+  }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+/* =========================
+FOOTER PROFESIONAL
+========================= */
+
+.footer-profesional{
+margin-top:30px;
+background:linear-gradient(
+180deg,
+#b00000,
+#700000
+);
+
+color:white;
+
+padding:30px 20px 90px;
+
+border-radius:25px 25px 0 0;
+}
+
+.footer-top{
+display:flex;
+flex-direction:column;
+gap:25px;
+}
+
+.footer-brand{
+text-align:center;
+}
+
+.footer-logo{
+width:80px;
+height:80px;
+object-fit:contain;
+
+background:white;
+
+padding:8px;
+
+border-radius:20px;
+
+margin-bottom:12px;
+}
+
+.footer-brand h2{
+font-size:20px;
+margin-bottom:8px;
+}
+
+.footer-brand p{
+font-size:13px;
+line-height:1.7;
+opacity:.9;
+}
+
+.footer-grid{
+display:grid;
+grid-template-columns:1fr;
+gap:20px;
+}
+
+.footer-box{
+background:rgba(255,255,255,.08);
+
+padding:18px;
+
+border-radius:18px;
+
+backdrop-filter:blur(10px);
+}
+
+.footer-box h3{
+margin-bottom:15px;
+font-size:16px;
+}
+
+.footer-item{
+display:flex;
+align-items:flex-start;
+gap:10px;
+
+margin-bottom:12px;
+}
+
+.footer-item img{
+width:20px;
+height:20px;
+}
+
+.footer-item span{
+font-size:13px;
+line-height:1.6;
+}
+
+.footer-social{
+display:flex;
+gap:15px;
+flex-wrap:wrap;
+}
+
+.footer-social a{
+width:50px;
+height:50px;
+
+background:white;
+
+border-radius:14px;
+
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+.footer-social img{
+width:25px;
+height:25px;
+}
+
+.footer-box a{
+display:block;
+
+color:white;
+
+text-decoration:none;
+
+margin-bottom:10px;
+
+font-size:13px;
+}
+
+.footer-bottom{
+margin-top:25px;
+
+padding-top:20px;
+
+border-top:1px solid rgba(255,255,255,.2);
+
+text-align:center;
+
+font-size:12px;
+
+line-height:1.8;
+}
+
+
+.hashtag-box{
+  width:100%;
+  padding:25px 20px;
+  background:linear-gradient(135deg, #d5d5d5, #181818);
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  justify-content:center;
+  align-items:center;
+  border-radius:20px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.15);
+}
+
+.hashtag-box span{
+  background:rgba(255,255,255,0.15);
+  color:white;
+  padding:8px 14px;
+  border-radius:999px;
+  font-size:13px;
+  font-weight:500;
+  backdrop-filter:blur(10px);
+  border:1px solid rgba(255,255,255,0.2);
+  transition:0.3s;
+  cursor:pointer;
+}
+
+.hashtag-box span:hover{
+  transform:scale(1.08);
+  background:white;
+  color:#b30000;
+}
+
+
+
+.ticker{
+  width:100%;
+  overflow:hidden;
+  background:linear-gradient(135deg, #d4d4d4, #262626);
+  padding:14px 0;
+  box-shadow:0 10px 25px rgba(0,0,0,0.15);
+}
+
+.ticker-track{
+  display:flex;
+  width:max-content;
+  animation:scrollLeft 20s linear infinite;
+  gap:25px;
+}
+
+.ticker-track span{
+  color:white;
+  font-size:14px;
+  font-weight:500;
+  padding:6px 14px;
+  background:rgba(255,255,255,0.15);
+  border:1px solid rgba(255,255,255,0.2);
+  border-radius:999px;
+  backdrop-filter:blur(8px);
+  white-space:nowrap;
+  transition:0.3s;
+}
+
+.ticker-track span:hover{
+  transform:scale(1.1);
+  background:white;
+  color:#b30000;
+}
+
+@keyframes scrollLeft{
+  0%{
+    transform:translateX(0);
+  }
+  100%{
+    transform:translateX(-50%);
+  }
+}
+
+
+
+
+</style>
 </head>
+
 <body>
 
 <header>
-  <h1>Paskibra 2026</h1>
-  <nav>
-    <a href="#about">Tentang</a>
-    <a href="#kegiatan">Kegiatan</a>
-    <a href="#galeri">Galeri</a>
-    <a href="#kontak">Kontak</a>
-  </nav>
+
+  <!-- KIRI -->
+  <div class="header-left">
+
+    <div class="logo">
+
+      <img
+        src="assets/images/launchericon-512x512.png"
+        class="logo-img logo1"
+      >
+
+      <img
+        src="assets/images/logo-bpip--XhYJiYi.webp"
+        class="logo-img logo2"
+      >
+
+    </div>
+
+    <div class="logo-text">
+      <h2>PASKIBRA PADANG TUALANG</h2>
+      <span>Kecamatan Padang Tualang</span>
+    </div>
+
+  </div>
+
+  <!-- KANAN -->
+  <div class="header-right">
+
+    <nav>
+      <a href="https://paskibrapadangtualang.net/home.html">Beranda</a>
+      <a href="https://paskibrapadangtualang.net/postingan.html">Tentang</a>
+      <a href="https://paskibrapadangtualang.net/postingan.html">Kegiatan</a>
+      <a href="https://paskibrapadangtualang.net/album.html">Galeri</a>
+      <a href="https://paskibrapadangtualang.net/kecamatan/index.html">Kecamatan</a>
+      <a href="kontak.html">Kontak</a>
+    </nav>
+
+    <!-- LOGO POJOK KANAN -->
+    <img
+      src="assets/images/logo langkat.png"
+      class="top-right-logo"
+    >
+
+  </div>
+
 </header>
+<!-- HERO -->
 
 <section class="hero">
-  <div>
-    <h2>Paskibra Kecamatan Padang Tualang</h2>
-    <p>Generasi disiplin, tangguh, dan berjiwa nasionalis tahun 2026</p>
-    <a href="#about" class="btn">Mulai Jelajah</a>
+
+  <div class="hero-content">
+
+    <div class="badge">
+      PASKIBRA MERAH PUTIH • PADANG TUALANG • 2026
+    </div>
+
+    <h1>
+      Generasi <span>Disiplin</span><br>
+      Pengibar Sang Merah Putih
+    </h1>
+
+    <p>
+      Membentuk generasi muda Kecamatan Padang Tualang yang tangguh,
+      berkarakter, berjiwa nasionalisme tinggi, disiplin,
+      serta siap menjadi kebanggaan daerah dan bangsa Indonesia.
+    </p>
+
+    <div class="hero-buttons">
+      <a href="https://paskibrapadangtualang.net/akun.html" class="btn btn-primary">
+        Website Utama
+      </a>
+
+      <a href="https://paskibrapadangtualang.net/tentangkami.html" class="btn btn-secondary">
+        Tentang Kami
+      </a>
+
+      
+<div class="ticker">
+
+  <div class="ticker-track">
+
+    <span>#paskibrapadangtualang</span>
+    <span>#paskibrapatul</span>
+    <span>#daftarpaskibra</span>
+    <span>#paskibraindonesia</span>
+    <span>#merahputih</span>
+    <span>#generasimuda</span>
+    <span>#disiplin</span>
+    <span>#nasionalisme</span>
+    <span>#paskibraka</span>
+
+    <!-- DUPLIKAT BIAR LOOP HALUS -->
+    <span>#paskibrapadangtualang</span>
+    <span>#paskibrapatul</span>
+    <span>#daftarpaskibra</span>
+    <span>#paskibraindonesia</span>
+    <span>#merahputih</span>
+    <span>#generasimuda</span>
+    <span>#disiplin</span>
+    <span>#nasionalisme</span>
+    <span>#paskibraka</span>
+
   </div>
-</section>
 
-<section id="about">
-  <h2 class="title">Tentang Kami</h2>
-  <p style="text-align:center; max-width:800px; margin:auto; color:#ccc;">
-    entity["organization","Paskibra Kecamatan Padang Tualang","Padang Tualang, Indonesia"] adalah organisasi baris-berbaris tingkat kecamatan yang berfokus pada pembentukan disiplin, jiwa kepemimpinan, dan nasionalisme bagi generasi muda tahun 2026.
-  </p>
-</section>
+</div>
 
-<section id="kegiatan">
-  <h2 class="title">Kegiatan</h2>
-  <div class="grid">
-    <div class="card">Latihan baris-berbaris rutin</div>
-    <div class="card">Pelatihan fisik & mental</div>
-    <div class="card">Upacara kemerdekaan</div>
-    <div class="card">Pembinaan karakter</div>
+
+    </div>
+
   </div>
+
 </section>
 
-<section id="galeri">
-  <h2 class="title">Galeri</h2>
-  <div class="grid">
-    <div class="card">Foto kegiatan 1</div>
-    <div class="card">Foto kegiatan 2</div>
-    <div class="card">Foto kegiatan 3</div>
-    <div class="card">Foto kegiatan 4</div>
+
+
+<!-- STATS -->
+
+<section class="stats">
+
+  <div class="stats-container">
+
+    <div class="stat-box">
+      <h2>2026</h2>
+      <p>Angkatan Paskibra</p>
+    </div>
+
+    <div class="stat-box">
+      <h2>100%</h2>
+      <p>Semangat Nasionalisme</p>
+    </div>
+
+    <div class="stat-box">
+      <h2>Disiplin</h2>
+      <p>Karakter Utama</p>
+    </div>
+
+    <div class="stat-box">
+      <h2>Padang Tualang</h2>
+      <p>Kecamatan Kebanggaan</p>
+    </div>
+
   </div>
+
 </section>
 
-<section id="kontak">
-  <h2 class="title">Kontak</h2>
-  <div style="text-align:center; color:#ccc;">
-    Instagram: @paskibrapadangtualang<br>
-    Email: info@paskibra2026.id
+<!-- ABOUT -->
+
+<section>
+
+  <div class="container">
+
+    <div class="section-title">
+      <span>TENTANG ORGANISASI</span>
+      <h2>Paskibra Kecamatan Padang Tualang</h2>
+
+      <p>
+        Organisasi pembinaan generasi muda yang fokus terhadap kedisiplinan,
+        kepemimpinan, tanggung jawab, dan semangat cinta tanah air.
+      </p>
+    </div>
+
+    <div class="about-grid">
+
+      <div class="about-image">
+
+        <img src="assets/images/PASKIBRA KEC PADANG TUALANG .png">
+
+        <div class="about-card">
+          <h3>Merah Putih</h3>
+          <p>Semangat • Disiplin • Nasionalisme</p>
+        </div>
+
+      </div>
+
+
+
+          <div class="about-grid">
+
+      <div class="about-image">
+
+        <img src="assets/images/PASKIBRA KEC PADANG TUALANG ANGKATAN 2023🤍♥️@elkyelanda@disguised.binspaskibraindonesia pada (4).png">
+
+        <div class="about-card">
+          <h3>Merah Putih</h3>
+          <p>Jiwa Muda • Mental Baja • Cinta Negeri</p>
+        </div>
+
+      </div>
+
+
+
+
+
+
+      <div class="about-text">
+
+        <h3>Membangun Jiwa Patriot Generasi Muda</h3>
+
+        <p>
+          Paskibra Kecamatan Padang Tualang hadir sebagai wadah pembinaan
+          pelajar untuk menciptakan generasi muda yang memiliki karakter kuat,
+          sikap disiplin, tanggung jawab, dan loyalitas tinggi terhadap bangsa.
+        </p>
+
+        <p>
+          Melalui latihan rutin, pembinaan fisik dan mental,
+          serta kegiatan kepemimpinan, anggota Paskibra dibentuk menjadi
+          pribadi yang tangguh, percaya diri, dan siap menjadi teladan.
+        </p>
+
+      </div>
+
+    </div>
+
   </div>
+
 </section>
 
-<footer>
-  © 2026 Paskibra Kecamatan Padang Tualang
+<!-- KEGIATAN -->
+
+<section class="activities">
+
+  <div class="container">
+
+    <div class="section-title">
+      <span>KEGIATAN UTAMA</span>
+      <h2>Program Pembinaan Paskibra</h2>
+
+      <p>
+        Berbagai kegiatan pembinaan untuk meningkatkan kedisiplinan,
+        kekompakan, kepemimpinan, dan rasa cinta tanah air.
+      </p>
+    </div>
+
+    <div class="grid">
+
+      <div class="card">
+        <div class="card-icon">🇮🇩</div>
+
+        <h3>Latihan PBB</h3>
+
+        <p>
+          Pembinaan baris berbaris untuk melatih disiplin,
+          kekompakan, dan ketegasan anggota.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">🔥</div>
+
+        <h3>Latihan Fisik</h3>
+
+        <p>
+          Meningkatkan kekuatan mental dan fisik
+          agar anggota lebih tangguh dan siap bertugas.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">⭐</div>
+
+        <h3>Kepemimpinan</h3>
+
+        <p>
+          Membentuk karakter pemimpin muda
+          yang bertanggung jawab dan berintegritas.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">🎖️</div>
+
+        <h3>Upacara Resmi</h3>
+
+        <p>
+          Berpartisipasi dalam kegiatan pengibaran bendera
+          dan upacara resmi tingkat kecamatan.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<div class="ticker">
+
+  <div class="ticker-track">
+
+    <span>#paskibrapadangtualang</span>
+    <span>#paskibrapatul</span>
+    <span>#daftarpaskibra</span>
+    <span>#paskibraindonesia</span>
+    <span>#merahputih</span>
+    <span>#generasimuda</span>
+    <span>#disiplin</span>
+    <span>#nasionalisme</span>
+    <span>#paskibraka</span>
+
+    <!-- DUPLIKAT BIAR LOOP HALUS -->
+    <span>#paskibrapadangtualang</span>
+    <span>#paskibrapatul</span>
+    <span>#daftarpaskibra</span>
+    <span>#paskibraindonesia</span>
+    <span>#merahputih</span>
+    <span>#generasimuda</span>
+    <span>#disiplin</span>
+    <span>#nasionalisme</span>
+    <span>#paskibraka</span>
+
+  </div>
+
+</div>
+
+
+
+
+
+<!-- FOOTER -->
+
+<!-- FOOTER -->
+<footer class="footer-profesional">
+
+<div class="footer-top">
+
+<div class="footer-brand">
+
+<img
+src="assets/images/logopaskib.png"
+class="footer-logo"
+>
+
+<h2>
+PASKIBRA PADANG TUALANG
+</h2>
+
+<p id="footerDesc">
+Organisasi Paskibra resmi Kecamatan Padang Tualang.
+</p>
+
+</div>
+
+<div class="footer-grid">
+
+<!-- KONTAK -->
+<div class="footer-box">
+
+<h3>
+Kontak
+</h3>
+
+<div class="footer-item">
+
+<img src="assets/images/search-user.png">
+
+<span id="footerTel">
+Loading...
+</span>
+
+</div>
+
+<div class="footer-item">
+
+<img src="assets/images/gmail.png">
+
+<span id="footerEmail">
+Loading...
+</span>
+
+</div>
+
+<div class="footer-item">
+
+<img src="assets/images/lokasi 17 (1).png">
+
+<span id="footerAlamat">
+Loading...
+</span>
+
+</div>
+
+</div>
+
+<!-- SOSMED -->
+<div class="footer-box">
+
+<h3>
+Media Sosial
+</h3>
+
+<div class="footer-social">
+
+<a id="fbLink" target="_blank">
+
+<img src="assets/images/facebook.png">
+
+</a>
+
+<a id="igLink" target="_blank">
+
+<img src="assets/images/social.png">
+
+</a>
+
+<a id="waLink" target="_blank">
+
+<img src="assets/images/whatsapp.png">
+
+</a>
+
+<a id="ytLink" target="_blank">
+
+<img src="assets/images/youtube.png">
+
+</a>
+
+</div>
+
+</div>
+
+<!-- MENU -->
+<div class="footer-box">
+
+<h3>
+Menu Cepat
+</h3>
+
+<a href="https://paskibrapadangtualang.net/home.html">
+Beranda
+</a>
+
+<a href="https://paskibrapadangtualang.net/postingan.html">
+Postingan
+</a>
+
+<a href="https://paskibrapadangtualang.net/tentangkami.html">
+Tentang Kami
+</a>
+
+<a href="https://paskibrapadangtualang.net/bantuan.html">
+Bantuan
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="footer-bottom">
+
+© 2026 Paskibra Padang Tualang
+
+<br>
+
+Landing page
+ Resmi Kecamatan Padang Tualang <br>
+Developer by.ilhamkrt
+
+</div>
+
 </footer>
 
-</body>
-<!DOCTYPE html>
-<html lang="id">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Paskibra Kecamatan Padang Tualang 2026</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-  <style>
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-      font-family:'Poppins',sans-serif;
+
+<script type="module">
+
+import { initializeApp }
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+import {
+getDatabase,
+ref,
+get,
+set
+}
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
+
+import {
+  getAuth,
+  onAuthStateChanged
+}
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+// FIREBASE CONFIG
+
+const firebaseConfig = {
+
+  apiKey: "AIzaSyBextWTeGMT1x9c1MHOv4GoHXP8OgW2WsY",
+  authDomain: "paskibra2026-300eb.firebaseapp.com",
+  databaseURL: "https://paskibra2026-300eb-default-rtdb.firebaseio.com",
+  projectId: "paskibra2026-300eb",
+  storageBucket: "paskibra2026-300eb.firebasestorage.app",
+  messagingSenderId: "937469132434",
+  appId: "1:937469132434:web:d1924e1160350000d1b04b"
+
+};
+
+// INIT
+
+const app =
+  initializeApp(firebaseConfig);
+
+const database =
+  getDatabase(app);
+
+const auth =
+  getAuth(app);
+
+
+
+
+
+
+
+
+
+
+
+/* =========================
+MAINTENANCE GLOBAL
+========================= */
+
+async function cekMaintenance(){
+
+try{
+
+const snap =
+await get(
+ref(
+database,
+"maintenance"
+)
+);
+
+if(
+!snap.exists()
+)
+return;
+
+const data =
+snap.val();
+
+// maintenance OFF
+
+if(
+data.aktif !== true
+)
+return;
+
+// halaman sekarang
+
+const page =
+window.location.pathname
+.toLowerCase();
+
+// jangan redirect
+// kalau sudah maintenance
+
+if(
+page.includes(
+"maintenance.html"
+)
+){
+return;
+}
+
+// bypass admin
+
+if(
+
+page.includes(
+"admin"
+)
+
+||
+
+page.includes(
+"bendahara"
+)
+
+){
+return;
+}
+
+// redirect
+
+window.location.href =
+"https://paskibrapadangtualang.net/maintenance.html";
+
+}catch(err){
+
+console.log(
+"Maintenance Error:",
+err
+);
+
+}
+
+}
+
+cekMaintenance();
+
+
+
+
+
+
+
+
+
+
+// ==============================
+// FOOTER DATA
+// ==============================
+
+async function loadFooter(){
+
+try{
+
+const footerRef =
+ref(database,"kontak");
+
+const snap =
+await get(footerRef);
+
+// DATA DEFAULT BARU
+
+const dummy = {
+
+alamat:
+"Padang Tualang, Langkat,sumatra utara",
+
+email:
+"paskibrapadangtualang@gmail.com",
+
+telepon:
+"+62319",
+
+facebook:
+"https://facebook.com/PaskibraPadangTualang",
+
+instagram:
+"https://instagram.com/paskibrapadangtualang",
+
+whatsapp:
+"https://wa.me/6262319",
+
+youtube:
+"https://youtube.com/@paskibrapadangtualang",
+
+deskripsi:
+"Portal resmi informasi kegiatan, berita, dokumentasi dan pengumuman Paskibra Padang Tualang."
+
+};
+
+// BELUM ADA → BUAT BARU
+
+if(!snap.exists()){
+
+await set(
+footerRef,
+dummy
+);
+
+isiFooter(dummy);
+
+return;
+
+}
+
+// SUDAH ADA → GABUNGKAN DATA LAMA + DATA BARU
+
+const lama =
+snap.val();
+
+const finalData = {
+
+alamat:
+lama.alamat ||
+dummy.alamat,
+
+email:
+lama.email ||
+dummy.email,
+
+telepon:
+lama.telepon ||
+dummy.telepon,
+
+facebook:
+lama.facebook ||
+dummy.facebook,
+
+instagram:
+lama.instagram ||
+dummy.instagram,
+
+whatsapp:
+lama.whatsapp ||
+dummy.whatsapp,
+
+youtube:
+lama.youtube ||
+dummy.youtube,
+
+deskripsi:
+lama.deskripsi ||
+dummy.deskripsi
+
+};
+
+// UPDATE YANG KOSONG SAJA
+
+await set(
+footerRef,
+finalData
+);
+
+isiFooter(
+finalData
+);
+
+}catch(err){
+
+console.log(
+"Footer error:",
+err
+);
+
+}
+
+}
+// ==============================
+// ISI FOOTER
+// ==============================
+
+function isiFooter(data){
+
+document.getElementById(
+"footerAlamat"
+).innerText =
+data.alamat || "-";
+
+document.getElementById(
+"footerEmail"
+).innerText =
+data.email || "-";
+
+document.getElementById(
+"footerTel"
+).innerText =
+data.telepon || "-";
+
+document.getElementById(
+"footerDesc"
+).innerText =
+data.deskripsi || "";
+
+document.getElementById(
+"fbLink"
+).href =
+data.facebook || "#";
+
+document.getElementById(
+"igLink"
+).href =
+data.instagram || "#";
+
+document.getElementById(
+"waLink"
+).href =
+data.whatsapp || "#";
+
+document.getElementById(
+"ytLink"
+).href =
+data.youtube || "#";
+
+}
+
+
+const aboutCards = document.querySelectorAll('.about-card');
+
+let lastScroll = window.pageYOffset;
+
+function checkScroll(){
+
+  const currentScroll = window.pageYOffset;
+
+  aboutCards.forEach(card => {
+
+    const rect = card.getBoundingClientRect();
+
+    // SCROLL KE BAWAH
+    if(currentScroll > lastScroll){
+
+      card.classList.remove('show-left');
+
+      if(rect.top < window.innerHeight - 100){
+        card.classList.add('show-right');
+      }else{
+        card.classList.remove('show-right');
+      }
+
     }
 
-    body{
-      background:#0b1220;
-      color:#fff;
-      line-height:1.6;
+    // SCROLL KE ATAS
+    else{
+
+      card.classList.remove('show-right');
+
+      if(rect.top < window.innerHeight - 100){
+        card.classList.add('show-left');
+      }else{
+        card.classList.remove('show-left');
+      }
+
     }
 
-    header{
-      position:fixed;
-      top:0;
-      left:0;
-      width:100%;
-      padding:15px 30px;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      background:rgba(11,18,32,0.85);
-      backdrop-filter:blur(10px);
-      z-index:1000;
+  });
+
+  lastScroll = currentScroll;
+
+}
+
+window.addEventListener('scroll', checkScroll);
+
+
+
+const logo = document.querySelector('.logo');
+
+setInterval(() => {
+  logo.classList.toggle('swap');
+}, 2000);
+
+
+const header = document.querySelector('header');
+const statsSection = document.querySelector('.stats');
+
+window.addEventListener('scroll', () => {
+
+  const statsTop =
+    statsSection.offsetTop - 120;
+
+  if(window.scrollY >= statsTop){
+
+    header.classList.add('scrolled');
+
+  }else{
+
+    header.classList.remove('scrolled');
+
+  }
+
+});
+
+
+
+const cards = document.querySelectorAll('.card');
+
+let lastScrollTop = 0;
+
+function animateCards(){
+
+  let currentScroll =
+  window.pageYOffset;
+
+  cards.forEach((card,index)=>{
+
+    const rect =
+    card.getBoundingClientRect();
+
+    const visible =
+    rect.top < window.innerHeight - 80;
+
+    // SCROLL KE BAWAH
+    if(currentScroll > lastScrollTop){
+
+      card.classList.remove(
+        'show-left'
+      );
+
+      if(visible){
+
+        // GANJIL DARI KANAN
+        if(index % 2 == 0){
+
+          card.classList.add(
+            'show-right'
+          );
+
+        }
+
+        // GENAP DARI KIRI
+        else{
+
+          card.classList.add(
+            'show-left'
+          );
+
+        }
+
+      }else{
+
+        card.classList.remove(
+          'show-right',
+          'show-left'
+        );
+
+      }
+
     }
 
-    header h1{
-      font-size:18px;
-      font-weight:700;
-      color:#00d4ff;
+    // SCROLL KE ATAS
+    else{
+
+      card.classList.remove(
+        'show-right'
+      );
+
+      if(visible){
+
+        // DIBALIK ARAHNYA
+        if(index % 2 == 0){
+
+          card.classList.add(
+            'show-left'
+          );
+
+        }else{
+
+          card.classList.add(
+            'show-right'
+          );
+
+        }
+
+      }else{
+
+        card.classList.remove(
+          'show-right',
+          'show-left'
+        );
+
+      }
+
     }
 
-    nav a{
-      color:#fff;
-      margin-left:15px;
-      text-decoration:none;
-      font-size:14px;
+  });
+
+  lastScrollTop =
+  currentScroll <= 0
+  ? 0
+  : currentScroll;
+
+}
+
+window.addEventListener(
+  'scroll',
+  animateCards
+);
+
+const aboutTexts =
+document.querySelectorAll('.about-text');
+
+let lastAboutScroll =
+window.pageYOffset;
+
+function animateAboutText(){
+
+  const currentScroll =
+  window.pageYOffset;
+
+  aboutTexts.forEach(text=>{
+
+    const rect =
+    text.getBoundingClientRect();
+
+    const visible =
+    rect.top <
+    window.innerHeight - 120;
+
+    // RANDOM ARAH
+    const randomDirection =
+    Math.random() > 0.5
+    ? 'right'
+    : 'left';
+
+    // SCROLL KE BAWAH
+    if(currentScroll > lastAboutScroll){
+
+      text.classList.remove(
+        'show-right',
+        'show-left'
+      );
+
+      if(visible){
+
+        if(randomDirection === 'right'){
+
+          text.classList.add(
+            'show-right'
+          );
+
+        }else{
+
+          text.classList.add(
+            'show-left'
+          );
+
+        }
+
+      }
+
     }
 
-    nav a:hover{
-      color:#00d4ff;
+    // SCROLL KE ATAS
+    else{
+
+      text.classList.remove(
+        'show-right',
+        'show-left'
+      );
+
+      if(visible){
+
+        // DIBALIK RANDOM LAGI
+        if(randomDirection === 'right'){
+
+          text.classList.add(
+            'show-left'
+          );
+
+        }else{
+
+          text.classList.add(
+            'show-right'
+          );
+
+        }
+
+      }
+
     }
 
-    .hero{
-      height:100vh;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      text-align:center;
-      background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.8)),url('https://images.unsplash.com/photo-1520975922284-9c0d0a3b4f7f') center/cover;
-      padding:20px;
-    }
+  });
 
-    .hero h2{
-      font-size:40px;
-      color:#fff;
-    }
+  lastAboutScroll =
+  currentScroll <= 0
+  ? 0
+  : currentScroll;
 
-    .hero p{
-      margin-top:10px;
-      color:#ccc;
-    }
+}
 
-    .btn{
-      margin-top:20px;
-      display:inline-block;
-      padding:10px 20px;
-      background:#00d4ff;
-      color:#000;
-      border-radius:8px;
-      text-decoration:none;
-      font-weight:600;
-    }
+window.addEventListener(
+  'scroll',
+  animateAboutText
+);
 
-    section{
-      padding:80px 20px;
-      max-width:1100px;
-      margin:auto;
-    }
+animateAboutText();
 
-    .title{
-      text-align:center;
-      margin-bottom:40px;
-      font-size:28px;
-      color:#00d4ff;
-    }
+animateCards();
+checkScroll();
+loadFooter();
+</script>
 
-    .grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-      gap:20px;
-    }
 
-    .card{
-      background:#121a2b;
-      padding:20px;
-      border-radius:12px;
-    }
-
-    footer{
-      text-align:center;
-      padding:20px;
-      background:#0a0f1c;
-      color:#aaa;
-    }
-  </style>
-</head>
-<body>
-
-<header>
-  <h1>Paskibra 2026</h1>
-  <nav>
-    <a href="#about">Tentang</a>
-    <a href="#kegiatan">Kegiatan</a>
-    <a href="#galeri">Galeri</a>
-    <a href="#kontak">Kontak</a>
-  </nav>
-</header>
-
-<section class="hero">
-  <div>
-    <h2>Paskibra Kecamatan Padang Tualang</h2>
-    <p>Generasi disiplin, tangguh, dan berjiwa nasionalis tahun 2026</p>
-    <a href="#about" class="btn">Mulai Jelajah</a>
-  </div>
-</section>
-
-<section id="about">
-  <h2 class="title">Tentang Kami</h2>
-  <p style="text-align:center; max-width:800px; margin:auto; color:#ccc;">
-    entity["organization","Paskibra Kecamatan Padang Tualang","Padang Tualang, Indonesia"] adalah organisasi baris-berbaris tingkat kecamatan yang berfokus pada pembentukan disiplin, jiwa kepemimpinan, dan nasionalisme bagi generasi muda tahun 2026.
-  </p>
-</section>
-
-<section id="kegiatan">
-  <h2 class="title">Kegiatan</h2>
-  <div class="grid">
-    <div class="card">Latihan baris-berbaris rutin</div>
-    <div class="card">Pelatihan fisik & mental</div>
-    <div class="card">Upacara kemerdekaan</div>
-    <div class="card">Pembinaan karakter</div>
-  </div>
-</section>
-
-<section id="galeri">
-  <h2 class="title">Galeri</h2>
-  <div class="grid">
-    <div class="card">Foto kegiatan 1</div>
-    <div class="card">Foto kegiatan 2</div>
-    <div class="card">Foto kegiatan 3</div>
-    <div class="card">Foto kegiatan 4</div>
-  </div>
-</section>
-
-<section id="kontak">
-  <h2 class="title">Kontak</h2>
-  <div style="text-align:center; color:#ccc;">
-    Instagram: @paskibrapadangtualang<br>
-    Email: info@paskibra2026.id
-  </div>
-</section>
-
-<footer>
-  © 2026 Paskibra Kecamatan Padang Tualang
-</footer>
 
 </body>
 </html>
