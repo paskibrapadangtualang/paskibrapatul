@@ -2,7 +2,7 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 <title>Paskibra Kecamatan Padang Tualang 2026</title>
 
@@ -30,6 +30,22 @@ body{
   color:#222;
   overflow-x:hidden;
 }
+
+
+body {
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+
+img {
+  pointer-events: none;
+  user-select: none;
+}
+
+
+
 
 /* HEADER */
 
@@ -2007,6 +2023,38 @@ animateAboutText();
 animateCards();
 checkScroll();
 loadFooter();
+
+
+
+
+
+
+
+
+
+
+
+document.addEventListener("contextmenu", function(e) {
+  e.preventDefault();
+});
+
+document.addEventListener("copy", function(e) {
+  e.preventDefault();
+});
+
+document.addEventListener("keydown", function(e) {
+  if (
+    e.ctrlKey && 
+    (e.key === "u" || e.key === "s" || e.key === "c")
+  ) {
+    e.preventDefault();
+  }
+
+  if (e.key === "F12") {
+    e.preventDefault();
+  }
+});
+
 </script>
 
 
