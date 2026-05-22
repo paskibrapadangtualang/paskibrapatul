@@ -988,6 +988,66 @@ line-height:1.8;
   object-fit: contain;
 }
 
+
+
+/* BUTTON BOTTOM */
+#openVisitorBtn{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  z-index:9999;
+
+  padding:14px 18px;
+  border:none;
+  border-radius:50px;
+
+  background:#b00000;
+  color:white;
+  font-weight:600;
+
+  box-shadow:0 10px 25px rgba(0,0,0,0.25);
+  cursor:pointer;
+}
+
+/* OVERLAY FULLSCREEN */
+#visitorPopup{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.6);
+
+  display:none;
+  justify-content:center;
+  align-items:center;
+
+  z-index:10000;
+}
+
+/* BOX POPUP */
+#visitorPopupContent{
+  width:90%;
+  height:90%;
+
+  background:white;
+  border-radius:20px;
+
+  padding:20px;
+  overflow:auto;
+
+  position:relative;
+}
+
+/* CLOSE BUTTON */
+#closePopup{
+  position:absolute;
+  top:10px;
+  right:15px;
+
+  font-size:22px;
+  cursor:pointer;
+}
+
+
+
 </style>
 </head>
 
@@ -1070,6 +1130,8 @@ line-height:1.8;
         Tentang Kami
       </a>
 
+
+
       
 
 
@@ -1078,7 +1140,7 @@ line-height:1.8;
   </div>
 
 </section>
-
+        <button id="openVisitorBtn">Lihat Pengunjung</button>
 
 
 <!-- STATS -->
@@ -1087,10 +1149,17 @@ line-height:1.8;
 
   <div class="stats-container">
 
-    <div class="stat-box">
+ <div class="stat-box">
+  <h2 id="visitorCount">0</h2>
+  <p>Pengunjung</p>
+  <p id="visitorText"></p>
+
+</div>
+        <div class="stat-box">
       <h2>2026</h2>
       <p>Angkatan Paskibra</p>
     </div>
+
 
     <div class="stat-box">
       <h2>100%</h2>
@@ -1110,6 +1179,59 @@ line-height:1.8;
   </div>
 
 </section>
+
+
+
+
+
+
+<div id="visitorPopup">
+
+  <div id="visitorPopupContent">
+
+
+
+<div style="
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:15px;
+  position:relative;
+  padding-right:40px;
+">
+
+  <h2 style="margin:0;font-size:18px;">
+    Daftar Pengunjung
+  </h2>
+
+<span id="totalVisitorTop" style="
+  font-weight:600;
+  color:#fff;
+  font-size:13px;
+  position:absolute;
+  right:10px;
+  top:50%;
+  transform:translateY(-50%);
+
+  background:linear-gradient(135deg,#b00000,#ff3b3b);
+  padding:5px 10px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,0.2);
+
+  backdrop-filter:blur(6px);
+">
+  0
+</span>
+
+</div>
+    <div id="visitorList"></div>
+
+  </div>
+
+</div>
+
+
+
 
 <!-- ABOUT -->
 
@@ -1149,8 +1271,8 @@ line-height:1.8;
         <img src="assets/images/PASKIBRA KEC PADANG TUALANG ANGKATAN 2023🤍♥️@elkyelanda@disguised.binspaskibraindonesia pada (4).png">
 
         <div class="about-card">
-          <h3>Merah Putih</h3>
-          <p>Jiwa Muda • Mental Baja • Cinta Negeri</p>
+          <h3>H Ramlan Efendy Lubis SE</h3>
+          <p>Bapak CAMAT PADANG TUALANG TAHUN 2022</p>
         </div>
 
       </div>
@@ -1432,7 +1554,9 @@ import {
 getDatabase,
 ref,
 get,
-set
+set,
+push,
+onValue
 }
 from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
 
@@ -1474,6 +1598,201 @@ const auth =
 
 
 
+
+
+
+function updateTopVisitor(){
+
+  const refTotal = ref(database, "stats/visitors/total");
+
+  onValue(refTotal, (snap) => {
+
+    let total = snap.exists() ? snap.val() : 0;
+
+    const el = document.getElementById("totalVisitorTop");
+
+    if(el){
+      el.innerText = formatNumber(total);
+    }
+
+  });
+
+}
+
+
+
+// ==============================
+// VISITOR COUNTER FIREBASE (FINAL)
+// ==============================
+
+async function loadVisitor(){
+
+  const visitorRef = ref(database, "stats/visitors/total");
+
+  const snap = await get(visitorRef);
+
+  // 🔥 DUMMY DEFAULT
+  let total = snap.exists() ? snap.val() : 2300;
+
+  // kalau belum ada → buat di Firebase
+  if (!snap.exists()) {
+    await set(visitorRef, total);
+  }
+
+  // tampilkan awal
+  document.getElementById("visitorCount").innerText =
+    formatNumber(total);
+
+  // =========================
+  // CEK DEVICE (1x HITUNG)
+  // =========================
+  let id = localStorage.getItem("visitor_id");
+
+  if (!id) {
+
+    id = Date.now().toString();
+    localStorage.setItem("visitor_id", id);
+
+    total++;
+
+    await set(visitorRef, total);
+
+    document.getElementById("visitorCount").innerText =
+      formatNumber(total);
+  }
+}
+
+function formatNumber(num){
+  if(num >= 1000){
+    return (num/1000).toFixed(1) + "k";
+  }
+  return num;
+}
+
+
+
+
+
+
+// ==============================
+// TAMUKU NAME + VISITOR LOG
+// ==============================
+
+function getVisitorName(){
+
+  let name = localStorage.getItem("visitor_name");
+
+  if(!name){
+    const random = Math.floor(Math.random() * 9000) + 100;
+    name = "Tamuku" + random;
+    localStorage.setItem("visitor_name", name);
+  }
+
+  return name;
+}
+
+async function saveVisitorLog(){
+
+  const name = getVisitorName();
+
+  const logRef = ref(database, "visitors_log");
+
+  push(logRef, {
+    name: name,
+    message: name + " pengunjung baru...",
+    time: Date.now()
+  });
+
+  const el = document.getElementById("visitorText");
+  if(el){
+    el.innerText = name + " pengunjung baru...";
+  }
+}
+
+
+
+// ==============================
+// LIVE VISITOR LIST
+// ==============================
+function loadVisitorLog(){
+
+  const logRef = ref(database, "visitors_log");
+
+  onValue(logRef, (snapshot) => {
+
+    const data = snapshot.val();
+    const list = document.getElementById("visitorList");
+
+    if(!list) return;
+
+    list.innerHTML = "";
+
+    const myName = getVisitorName();
+
+    const items = [];
+
+    for(let id in data){
+      items.push(data[id]);
+    }
+
+    // terbaru di atas
+    items.sort((a,b) => b.time - a.time);
+
+    items.forEach(item => {
+
+      const row = document.createElement("div");
+
+      row.style.display = "flex";
+      row.style.alignItems = "center";
+      row.style.justifyContent = "space-between";
+      row.style.padding = "10px";
+      row.style.borderBottom = "1px solid #eee";
+      row.style.fontSize = "13px";
+
+      // LEFT SIDE (ICON + TEXT)
+      const left = document.createElement("div");
+      left.style.display = "flex";
+      left.style.alignItems = "center";
+      left.style.gap = "10px";
+
+      const img = document.createElement("img");
+      img.src = "assets/images/launchericon-192x192.png";
+      img.style.width = "22px";
+      img.style.height = "22px";
+
+      const text = document.createElement("span");
+      text.innerText = item.message;
+
+      left.appendChild(img);
+      left.appendChild(text);
+
+      // RIGHT SIDE (ANDA)
+      const right = document.createElement("div");
+
+      if(item.name === myName){
+        right.innerText = "(Anda)";
+        right.style.color = "red";
+        right.style.fontWeight = "600";
+      } else {
+        right.innerText = "";
+      }
+
+      row.appendChild(left);
+      row.appendChild(right);
+
+      list.appendChild(row);
+    });
+
+    // auto scroll ke atas
+    list.scrollTop = 0;
+
+  });
+}
+
+loadVisitor();
+saveVisitorLog();
+loadVisitorLog();
+updateTopVisitor();
 
 
 
@@ -2055,7 +2374,51 @@ document.addEventListener("keydown", function(e) {
   }
 });
 
+
+
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  const btn = document.getElementById("openVisitorBtn");
+  const popup = document.getElementById("visitorPopup");
+  const close = document.getElementById("closePopup");
+
+  if(btn && popup){
+
+    btn.addEventListener("click", () => {
+      popup.style.display = "flex";
+    });
+
+  }
+
+  if(close && popup){
+
+    close.addEventListener("click", (e) => {
+      e.stopPropagation(); // biar tidak kena overlay click
+      popup.style.display = "none";
+    });
+
+  }
+
+  if(popup){
+
+    popup.addEventListener("click", (e) => {
+      if(e.target === popup){
+        popup.style.display = "none";
+      }
+    });
+
+  }
+
+});
+
 </script>
+
+
+
+
 
 
 
